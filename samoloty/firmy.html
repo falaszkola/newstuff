@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <title>UX</title>
+    <style>
+.left {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+}
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    width: 100px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    display: none;
+}
+.opis {
+    text-align: center;
+    display: none;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}  
+nav {
+    display: none
+}
+   @media only screen and (min-width: 1200px) {
+        nav {
+            background-color: #c0392b;
+            height: 80px;
+            width: 900px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+            color: white;
+        }
+        nav::before {
+            content: "";
+            position: absolute;
+            top: 0;             /* przylega do góry paska */
+            left: -80px;        /* po lewej od paska */
+            width: 0;
+            height: 0;
+            /* trójkąt z kątem prostym w prawym górnym rogu */
+            border-top: 80px solid #c0392b;      /* górna ściana trójkąta */
+            border-left: 80px solid transparent; /* lewa ściana przezroczysta */
+            border-bottom: 0 solid transparent;
+            border-right: 0 solid transparent;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .middle {
+            position: fixed;
+            top: -10px;
+            left: -8px;
+            width: 100vw;
+            height: 10vh;
+            overflow: show;
+            margin: 150px -50px;
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            font-size: x-large;
+        }
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 20px;
+    left: 0px;
+    width: 150px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    width: 1500px;
+    display: block;
+    margin: 0 auto;
+    background-color: #c0392b;
+}
+.opis {
+    text-align: center;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548)P;
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+.tekst {
+    text-align: left;
+    margin: 0px 260px;
+    font-size: large;
+}
+.sources {
+    text-align: left;
+    margin: 0px 260px;
+    color: rgba(161, 160, 160, 0.705);
+}
+}
+ </style>
+</head>
+<body>
+    <!-- Przycisk hamburgera -->
+<div class="hamburger" id="hamburger">
+    &#9776; <!-- symbol hamburgera -->
+</div>
+
+<!-- Przyciemnione tło -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Menu boczne -->
+<div class="menu" id="menu">
+    <h2>Więcej podstron</h2>
+    <ul>
+        <li><a href="samoloty.html">Strona główna</a></li>
+        <li><a href="firmy.html"><u>Firmy samolotów</u></a></li>
+        <li><a href="typy.html">Typy samolotów</a></li>
+        <li><a href="najpopularniejsze.html">Najpopularniejsze samoloty</a></li>
+        <li><a href="katastrofy.html">Katastrofy lotnicze</a></li>
+        <li><a href="lotniska.html">Największe lotniska</a></li>
+        <li><a href="linie.html">Linie lotnicze</a></li>
+    </ul>
+    <button id="closeMenu">Powrót</button>
+</div>
+    <nav>
+        <a href="../index.html">Portfolio</a>
+        <a href="firmy.html"><u>Firmy samolotów</u></a>
+        <a href="typy.html">Typy samolotów</a>
+        <a href="najpopularniejsze.html">Najpoplarniejsze samoloty</a>
+    </nav>
+<a href="samoloty.html" class="top-left-image-link">
+    <img src="imgs/samolot.jpg" alt="powrót" class="top-left-image" />
+</a>
+<section class="middle">
+    <h1>Firmy samolotów</h1>
+    <p>Firm, które produkują samoloty jest wiele, lecz nie wszystkie produkują te same typy samolotów.</p>
+    <p>Niektóre firmy produkują samoloty pasażerskie, a niektóre wojskowe.</p>
+</section>
+<section class="tekst">
+    <h1>Boeing</h1>
+    <img src="imgs/boeing.jpg" alt="Boeing" width="400px">
+    <p>Boeing produkuje różne typy samolotów i śmigłowców, przeznaczonych zarówno dla wojska, jak i służb cywilnych.</p>
+    <p>Uczestniczy w programach badania kosmosu, produkując zespoły i podzespoły do rakiet nośnych, sztucznych satelitów i statków kosmicznych.</p>
+</section>
+<section class="tekst">
+    <h1>Airbus</h1>
+    <img src="imgs/airbus.jpg" alt="AirbusBeluga" width="400px">
+    <p>Airbus S.A.S. – przedsiębiorstwo zajmujące się produkcją samolotów, spółka zależna Airbus Group (dawniej EADS). Siedziba koncernu znajduje się w Tuluzie we Francji.
+</p>
+    <p>Airbus zatrudnia około 130 tysięcy pracowników w 180 miejscach na całym świecie.</p>
+</section>
+<section class="tekst">
+    <h1>Lockheed Martin</h1>
+    <img src="imgs/lockheed.jpg" alt="LockheedMartin" width="400px">
+    <p>Lockheed Martin Corporation – amerykański koncern zbrojeniowy powstały w 1995 z połączenia korporacji Lockheed i Martin Marietta. Jeden z „wielkiej piątki” amerykańskiego przemysłu obronnego.</p>
+    <p>Lockheed Martin jest jednym z największych na świecie dostawców uzbrojenia. W 2009 r. 74% dochodów pochodziło od Departamentu Obrony Stanów Zjednoczonych i innych agencji federalnych, oraz kontrahentów zagranicznych.</p>
+</section>
+<section class="tekst">
+    <h1>Cessna</h1>
+    <img src="imgs/cessna.jpeg" alt="Cessna" width="400px">
+    <p>Cessna Aircraft Company – jeden z najbardziej znanych producentów lekkich samolotów (nazywanych dawniej Columbia). Historia firmy sięga początków XX w., kiedy to w 1911 r. Clyde Cessna, farmer zamieszkały w USA, wybudował drewniany samolot i przeleciał nim jako pierwszy trasę pomiędzy rzeką Missisipi oraz Górami Skalistymi. </p>
+    <p>Sukces biznesowy jest zasługą jego wnuka – Dwane’a Wallace’a.</p>
+</section>
+<section class="tekst">
+    <h1>Polskie Zakłady Lotnicze</h1>
+    <img src="imgs/plz.jpeg" alt="Cessna" width="400px">
+    <p>Polskie Zakłady Lotnicze Sp. z o.o. (PZL Mielec) – największe zakłady lotnicze w Polsce, znajdujące się w Mielcu w województwie podkarpackim. Powstały w 1938 roku jako zakład WP-2 Państwowych Zakładów Lotniczych. Po II wojnie światowej stały się największą polską wytwórnią lotniczą, budując samoloty głównie na eksport i nosząc od 1949 roku nazwę WSK Mielec (Wytwórnia Sprzętu Komunikacyjnego), a następnie WSK „PZL-Mielec”.  </p>
+    <p>W 1998 roku w wyniku restrukturyzacji stały się niezależnym podmiotem gospodarczym. Od 2007 roku spółka zależna amerykańskiego Sikorsky Aircraft Corporation (obecnie Lockheed Martin Helicopter Company). Tereny przedsiębiorstwa znajdują się w Specjalnej Strefie Ekonomicznej Euro-Park Mielec.</p>
+</section>
+<section class="tekst">
+    <h1>Comac</h1>
+    <img src="imgs/comac.jpg" alt="Comac" width="400px">
+    <p>Commercial Aircraft Corporation of China, Ltd. (Comac) (chiń. 中国商用飞机有限责任公司) – chiński państwowy producent samolotów założony 11 maja 2008. Siedziba główna znajduje się w Pudong w Szanghaju.</p>
+    <p>Kapitał zakładowy spółki wynosi 19 mld RMB (2,7 mld USD w maju 2008 r.). Korporacja jest projektantem i konstruktorem dużych samolotów pasażerskich o pojemności ponad 150 pasażerów, starając się zmniejszyć zależność Chin od Boeinga i Airbusa.</p>
+</section>
+<section class="sources">
+    <h3>Źródła:</h3>
+    <ul>
+    
+    <li><a href="https://pl.wikipedia.org/wiki/Boeing">https://pl.wikipedia.org/wiki/Boeing</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Airbus">https://pl.wikipedia.org/wiki/Airbus</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Lockheed_Martin">https://pl.wikipedia.org/wiki/Lockheed_Martin</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Cessna">https://pl.wikipedia.org/wiki/Cessna</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Polskie_Zak%C5%82ady_Lotnicze">https://pl.wikipedia.org/wiki/Polskie_Zak%C5%82ady_Lotnicze</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Comac">https://pl.wikipedia.org/wiki/Comac</a></li>
+
+    </ul>
+</section>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('overlay');
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    hamburger.addEventListener('click', () => {
+        overlay.classList.add('active');
+        menu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+</script>
+</body>

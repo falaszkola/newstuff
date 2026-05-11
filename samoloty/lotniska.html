@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <title>UX</title>
+<style>
+.left {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+}
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    width: 100px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    display: none;
+}
+.opis {
+    text-align: center;
+    display: none;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}  
+nav {
+    display: none
+}
+   @media only screen and (min-width: 1200px) {
+        nav {
+            background-color: #c0392b;
+            height: 80px;
+            width: 900px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+            color: white;
+        }
+        nav::before {
+            content: "";
+            position: absolute;
+            top: 0;             /* przylega do góry paska */
+            left: -80px;        /* po lewej od paska */
+            width: 0;
+            height: 0;
+            /* trójkąt z kątem prostym w prawym górnym rogu */
+            border-top: 80px solid #c0392b;      /* górna ściana trójkąta */
+            border-left: 80px solid transparent; /* lewa ściana przezroczysta */
+            border-bottom: 0 solid transparent;
+            border-right: 0 solid transparent;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .middle {
+            position: fixed;
+            top: -10px;
+            left: -8px;
+            width: 100vw;
+            height: 10vh;
+            overflow: show;
+            margin: 150px -50px;
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            font-size: x-large;
+        }
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 20px;
+    left: 0px;
+    width: 150px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    width: 1500px;
+    display: block;
+    margin: 0 auto;
+    background-color: #c0392b;
+}
+.opis {
+    text-align: center;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548)P;
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+.tekst {
+    text-align: left;
+    margin: 0px 260px;
+    font-size: large;
+}
+.sources {
+    text-align: left;
+    margin: 0px 260px;
+    color: rgba(161, 160, 160, 0.705);
+}}
+ </style>
+</head>
+<body>
+    <!-- Przycisk hamburgera -->
+<div class="hamburger" id="hamburger">
+    &#9776; <!-- symbol hamburgera -->
+</div>
+
+<!-- Przyciemnione tło -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Menu boczne -->
+<div class="menu" id="menu">
+    <h2>Więcej podstron</h2>
+    <ul>
+        <li><a href="samoloty.html">Strona główna</a></li>
+        <li><a href="firmy.html">Firmy samolotów</a></li>
+        <li><a href="typy.html">Typy samolotów</a></li>
+        <li><a href="najpopularniejsze.html">Najpopularniejsze samoloty</a></li>
+        <li><a href="katastrofy.html">Katastrofy lotnicze</a></li>
+        <li><a href="lotniska.html"><u>Największe lotniska</u></a></li>
+        <li><a href="linie.html">Linie lotnicze</a></li>
+    </ul>
+    <button id="closeMenu">Powrót</button>
+</div>
+    <nav>
+        <a href="../index.html">Portfolio</a>
+        <a href="firmy.html">Firmy samolotów</a>
+        <a href="typy.html">Typy samolotów</a>
+        <a href="najpopularniejsze.html">Najpoplarniejsze samoloty</a>
+    </nav>
+<a href="samoloty.html" class="top-left-image-link">
+    <img src="imgs/samolot.jpg" alt="powrót" class="top-left-image" />
+</a>
+<section class="middle">
+    <h1>Największe lotniska</h1>
+    <p>Największe porty lotnicze pod względem liczby pasażerów.</p>
+</section>
+<section class="tekst">
+    <h1>Port lotniczy Atlanta – Hartsfield-Jackson</h1>
+    <img src="imgs/atlanta.jpg" alt="Hartsfield-Jackson" width="400px">
+    <p>Największe na świecie międzynarodowe lotnisko położone w Atlancie, w stanie Georgia, USA, główny węzeł amerykańskich linii lotniczych Delta Air Lines. Swoją nazwę zawdzięcza dwóm byłym burmistrzom Atlanty, Williamowi Hartsfieldowi i Maynardowi Jacksonowi.</p>
+    <p>Liczba pasażerów: 103 902 922</p>
+</section>
+<section class="tekst">
+    <h1>Port lotniczy Pekin</h1>
+    <img src="imgs/pekin.jpg" alt="pekin" width="400px">
+    <p>międzynarodowy port lotniczy położony 20 km na północny wschód od centrum Pekinu. Jest głównym portem przesiadkowym linii lotniczych Air China.</p>
+    <p>Liczba pasażerów: 95 786 442</p>
+</section>
+<section class="tekst">
+    <h1>Port lotniczy Dubaj</h1>
+    <img src="imgs/dubai.jpg" alt="dubai" width="400px">
+    <p>Międzynarodowy port lotniczy położony 5 km na północ od centrum Dubaju, w 2017 trzeci pod względem liczby pasażerów[2] i szósty pod względem ruchu towarowego[3] port lotniczy świata.</p>
+    <p>Liczba pasażerów: 88 242 099</p>
+</section>
+<section class="tekst">
+    <h1>Port lotniczy Tokio-Haneda</h1>
+    <img src="imgs/tokyo.png" alt="tokyo" width="400px">
+    <p>Port lotniczy położony na wybrzeżu Zatoki Tokijskiej (częściowo na sztucznie utworzonej wyspie) w dzielnicy Ōta, w stolicy Japonii – Tokio. W latach 2002–2007 był na czwartym miejscu na świecie pod względem ruchu pasażerskiego, a w 2008 roku wysunął się na trzecią pozycję.</p>
+    <p>Liczba pasażerów: 85 408 975</p>
+</section>
+<section class="tekst">
+    <h1>Port lotniczy Los Angeles</h1>
+    <img src="imgs/la.jpg" alt="los angeles" width="400px">
+    <p>Powszechnie nazywany LAX (każda litera odczytywana oddzielnie) – główny międzynarodowy port lotniczy obsługujący Los Angeles i Obszar metropolitalny Los Angeles.</p>
+    <p>Liczba pasażerów: 84 557 968</p>
+</section>
+<section class="sources">
+    <h3>Źródła</h3>
+    <ul>
+        <li><a href="https://pl.wikipedia.org/wiki/Najwi%C4%99ksze_porty_lotnicze_%C5%9Bwiata_pod_wzgl%C4%99dem_liczby_pasa%C5%BCer%C3%B3w">https://pl.wikipedia.org/wiki/Najwi%C4%99ksze_porty_lotnicze_%C5%9Bwiata_pod_wzgl%C4%99dem_liczby_pasa%C5%BCer%C3%B3w</a></li>
+        <li><a href="https://pl.wikipedia.org/wiki/Port_lotniczy_Atlanta_%E2%80%93_Hartsfield-Jackson">https://pl.wikipedia.org/wiki/Port_lotniczy_Atlanta_%E2%80%93_Hartsfield-Jackson</a></li>
+        <li><a href="https://pl.wikipedia.org/wiki/Port_lotniczy_Pekin">https://pl.wikipedia.org/wiki/Port_lotniczy_Pekin</a></li>
+        <li><a href="https://pl.wikipedia.org/wiki/Port_lotniczy_Dubaj">https://pl.wikipedia.org/wiki/Port_lotniczy_Dubaj</a></li>
+        <li><a href="https://pl.wikipedia.org/wiki/Port_lotniczy_Tokio-Haneda">https://pl.wikipedia.org/wiki/Port_lotniczy_Tokio-Haneda</a></li>
+        <li><a href="https://pl.wikipedia.org/wiki/Port_lotniczy_Los_Angeles">https://pl.wikipedia.org/wiki/Port_lotniczy_Los_Angeles</a></li>
+    </ul>
+</section>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('overlay');
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    hamburger.addEventListener('click', () => {
+        overlay.classList.add('active');
+        menu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+</script>
+</body>

@@ -1,0 +1,121 @@
+# Lekcja 
+## Zadanie na leckji
+------------------------
+| L | 1 | 2 | Nieważne |
+| F | 3 | 4 | Nieważne | 
+| T | 5 | 6 | Nieważne |
+------------------------
+LFT - Idzie pod  1-6 na małych ekranach
+Nieważne - znika na małych ekranach
+
+# Bootstrap - breakpointy
+Breakpointy to punkty graniczne szerokości ekranu, od których zaczynają obowiązywać określone style CSS.
+
+- Extra small	- (brak)	 <576px
+- Small -	sm	             ≥576px
+- Medium - md	             ≥768px
+- Large -	lg	             ≥992px
+- Extra large - xl	     ≥1200px
+- Extra extra large - xxl	 ≥1400px
+
+## Przykłady breakpointów w praktyce
+`<div class="col-12 col-md-6 col-lg-4">`
+
+## Widoczność elementów
+`<div class="d-block d-lg-none">` - Widoczny tylko na mobile i tabletach
+
+
+# Zasada mobile first (bardzo ważna!)
+
+## Bootstrap 5:
+
+- najpierw style dla mobile
+
+- potem nadpisywanie dla większych ekranów
+
+## Jak to działa?
+`<div class="col-12 col-md-6">`
+
+
+To NIE znaczy:
+- „6 kolumn od md w dół”
+
+Tylko:
+- col-12 obowiązuje od 0px
+- col-md-6 obowiązuje od 768px w górę
+
+# Kolory (text, background, border)
+## Tekst (text-*)
+`text-primary, text-secondary, text-success, text-danger, text-warning, text-info, text-light, text-dark, text-muted, text-white`
+# Tło (bg-*)
+`bg-primary, bg-secondary, bg-success, bg-danger, bg-warning, bg-info, bg-light, bg-dark, bg-white, bg-transparent`
+## Obramowanie (border-*)
+`border, border-0, border-top, border-bottom, border-start, border-end`
+# Kolory: 
+`border-primary, border-secondary, itd.`
+# Odstępy (marginesy i padding)
+## Margines (m-*) i padding (p-*)
+Składnia: m{t|b|s|e|x|y}-{0-5} lub p...
+
+`m-0 = brak marginesu`
+`m-3 = margines 1rem (skala 0–5)`
+`mt-2 = margines górny`
+`mb-4 = margines dolny`
+`ms-3 = margines startowy (lewo w LTR)`
+`me-3 = margines końcowy (prawo w LTR)`
+`mx-2 = margines poziomy (lewo + prawo)`
+`my-5 = margines pionowy (góra + dół)`
+
+Analogicznie p-2, px-4, pt-1 itp.
+# Rozmiary
+`Szerokość: w-25, w-50, w-75, w-100, w-auto`
+`Wysokość: h-25, h-50, h-75, h-100, h-auto`
+## Pełne wymiary: 
+`mw-100 (max-width), mh-100 (max-height)`
+
+# Układ (flex, grid)
+## Flexbox (d-flex)
+`d-flex, d-inline-flex`
+## Kierunek: 
+`flex-row, flex-row-reverse, flex-column, flex-column-reverse`
+## Wyrównanie w osi głównej: 
+`justify-content-start, justify-content-center, justify-content-end, justify-content-between, justify-content-around, justify-content-evenly`
+## Wyrównanie w osi poprzecznej: 
+`align-items-start, align-items-center, align-items-end, align-items-stretch`
+## Wyrównanie całych wierszy: 
+`align-content-start, align-content-center, align-content-end, align-content-between, align-content-around, align-content-stretch`
+## Grid system
+`.container, .container-fluid`
+`.row`
+`.col, .col-6, .col-md-4, .col-lg-3 (responsywne kolumny)`
+# Tekst
+## Wyrównanie: 
+`text-start, text-center, text-end`
+## Transformacje: 
+`text-uppercase, text-lowercase, text-capitalize`
+## Waga czcionki: 
+`fw-bold, fw-semibold, fw-normal, fw-light`
+## Kursywa: 
+`fst-italic, fst-normal`
+## Rozmiar: 
+`fs-1 do fs-6 (od największej do najmniejszej)`
+# Przycisk (button)
+## Podstawowe style: 
+`btn, btn-primary, btn-secondary, btn-success, btn-danger, btn-warning, btn-info, btn-light, btn-dark, btn-link`
+## Rozmiary: 
+`btn-sm, btn-lg`
+## Blokowy: 
+`d-grid gap-2 + btn → pełna szerokość`
+# Komponenty gotowe
+## Navbar: 
+`navbar, navbar-expand-lg, navbar-dark bg-dark, navbar-light bg-light`
+## Cards: 
+`card, card-body, card-header, card-footer, card-title, card-text`
+## Forms: 
+`form-control, form-check, form-check-input, form-check-label`
+## Alerty: 
+`alert alert-primary (albo alert-success, alert-danger, itd.)`
+## Badge: 
+`badge bg-primary`
+## List group: 
+`list-group, list-group-item`

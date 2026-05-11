@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Modele</title>
+
+<style>
+body {
+    margin:0;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #d8d7d7, #78818f);
+    background-attachment: fixed;
+}
+.modele {
+    position: relative;
+    z-index: 2;
+    margin: 20px;
+    margin-left: 60px;
+    font-size: 50px;
+    color: aliceblue;
+}
+.center {
+    text-align: center;
+}
+.trojkat{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 200px solid rgb(83, 83, 83);
+    border-right: 600px solid transparent;
+    z-index: 1;
+}
+aside {
+    text-align: center;
+    margin-left: 60px;
+    margin-top: 60px;
+}
+.big {
+    font-size: 45px ;
+}
+hr {
+    border: none;         
+    height: 3px;         
+    background-color: #36363650;
+    margin: 20px auto;        
+    width: 80%;         
+}   
+.ok {
+    color: rgba(0, 0, 0, 0.418);
+}  
+.authors {
+    display: flex;              
+    justify-content: center;    
+    gap: 20px;                   
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.author {
+    display: flex;
+    flex-direction: column; /* obrazek nad tekstem */
+    align-items: center;    /* wyśrodkowanie tekstu pod obrazkiem */
+}
+
+.author img {
+    width: 200px;           /* dokładnie 200px */
+    height: 200px;          /* dokładnie 200px */
+    object-fit: cover;      /* dopasowanie obrazka do kwadratu */
+    border-radius: 10px;    /* opcjonalnie, lekko zaokrąglone rogi */
+}
+
+.author span {
+    margin-top: 10px;       /* odstęp między obrazkiem a imieniem */
+    color: #000000;
+    font-size: 18px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="trojkat"></div>
+
+<header>
+    <h1 class="modele">Modele</h1>
+</header>
+<div class="center">    
+    <h1 class="big">Co to są modele w informatyce?</h1>    
+    <p>Definicja modelu: model to uproszczony obraz rzeczywistości, który pozwala łatwiej zrozumieć daną rzecz, kosztem mniej ważnych informacji.</p>
+</div>
+<hr>
+<aside>
+    <h1 class="big">Case study:</h1>
+    <h2>Problem z danymi</h2>
+    <p>Wyobraź sobie małpę, która chce zjeść banany. <br>Świat wokół niej jest skomplikowany, są tam np.: drzewa, inne małpy, deszcz.<br> Małpa nie zrozumie wszystkiego na raz więc robi <strong>Model.</strong>
+    </p>
+    <h1 class="big">Zasada:</h1>
+    <h1>Każdy model upraszcza rzeczywistość i wprowadza założenia</h1>
+    <hr>
+    <h3>Model małpy</h3>
+    <p>"Banany są na drzewie." Idź do drzewa = dostaniesz banany.<br>To jest model.<strong> Model to prosty pomysł na to, jak działa świat.</strong></p>
+    <h2>Lecz model nie pokazuje wszystkiego</h2>
+    <p>Na drzewie może być tygrys lub ktoś już zjadł banany.</p>
+    <h3>Model mówi: <br>drzewo = banany</h3>
+    <p>Lecz rzeczywistość mówi czasem tak, czasem nie.</p>
+    <hr>
+    <h2>Wniosek</h2>
+    <p>Model to prosty sposób myślenia o skomplikowanym świecie. <br>Pomaga podejmować decyzje, ale nie jest idealny i nie uwzględnia wszystkiego. <br><strong>Każdy model kłamie, ale bywa użyteczny.</strong></p>
+<hr>
+<div>
+    <h1 class="big">Autorzy:</h1>
+</div>
+<div class="authors">
+    <div class="author">
+        <img src="Sample_User_Icon.png" alt="Autor 1">
+        <span>Olivier W.</span>
+    </div>
+    <div class="author">
+        <img src="Sample_User_Icon.png" alt="Autor 2">
+        <span>Aleksander I.</span>
+    </div>
+    <div class="author">
+        <img src="Sample_User_Icon.png" alt="Autor 3">
+        <span>Maciej J.</span>
+    </div>
+    <div class="author">
+        <img src="Sample_User_Icon.png" alt="Autor 4">
+        <span>Marcin B.</span>
+    </div>
+</div>
+<p class="ok">FAKECORP© 2026 ALL RIGHTS RESERVED</p>
+</aside>
+</body>
+</html>

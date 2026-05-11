@@ -1,0 +1,59 @@
+
+/*----------Sunset----------*/
+
+.sunset1bg {
+    background-color: #D9B15D;
+}
+
+.sunset2bg {
+    background-color: #D98B5D;
+}
+
+.sunset3bg {
+    background-color: #F5BD7A;
+}
+
+.sunset1txt {
+    color: #D9B15D;
+}
+
+.sunset2txt {
+    color: #D98B5D;
+}
+
+.sunset3txt {
+    color: #F5BD7A;
+}
+
+/*----------Water----------*/
+
+.water1bg {
+    background-color: #5DB2D9;
+}
+
+.water2bg {
+    background-color: #9DCEDF;
+}
+
+.water1txt {
+    color: #5DB2D9;
+}
+
+.water2txt {
+    color: #9DCEDF;
+}
+
+/*----------Grayscale------------*/
+
+.graybg {
+    background-color: #59564E;
+}
+
+.graytxt {
+    color: #59564E;
+}
+
+.white {
+    color: white;
+}
+    

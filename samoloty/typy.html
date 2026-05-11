@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <title>UX</title>
+    <style>
+.left {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+}
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    width: 100px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    display: none;
+}
+.opis {
+    text-align: center;
+    display: none;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}  
+nav {
+    display: none
+}
+   @media only screen and (min-width: 1200px) {
+        nav {
+            background-color: #c0392b;
+            height: 80px;
+            width: 900px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+            color: white;
+        }
+        nav::before {
+            content: "";
+            position: absolute;
+            top: 0;             /* przylega do góry paska */
+            left: -80px;        /* po lewej od paska */
+            width: 0;
+            height: 0;
+            /* trójkąt z kątem prostym w prawym górnym rogu */
+            border-top: 80px solid #c0392b;      /* górna ściana trójkąta */
+            border-left: 80px solid transparent; /* lewa ściana przezroczysta */
+            border-bottom: 0 solid transparent;
+            border-right: 0 solid transparent;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .middle {
+            position: fixed;
+            top: -10px;
+            left: -8px;
+            width: 100vw;
+            height: 10vh;
+            overflow: show;
+            margin: 150px -50px;
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            font-size: x-large;
+        }
+        
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 20px;
+    left: 0px;
+    width: 150px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    width: 1500px;
+    display: block;
+    margin: 0 auto;
+    background-color: #c0392b;
+}
+.opis {
+    text-align: center;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+.tekst {
+    text-align: left;
+    margin: 0px 260px;
+    font-size: large;
+}
+.sources {
+    text-align: left;
+    margin: 0px 260px;
+    color: rgba(161, 160, 160, 0.705);
+}}
+ </style>
+</head>
+<body>
+    <!-- Przycisk hamburgera -->
+<div class="hamburger" id="hamburger">
+    &#9776; <!-- symbol hamburgera -->
+</div>
+
+<!-- Przyciemnione tło -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Menu boczne -->
+<div class="menu" id="menu">
+    <h2>Więcej podstron</h2>
+    <ul>
+        <li><a href="samoloty.html">Strona główna</a></li>
+        <li><a href="firmy.html">Firmy samolotów</a></li>
+        <li><a href="typy.html"><u>Typy samolotów</u></a></li>
+        <li><a href="najpopularniejsze.html">Najpopularniejsze samoloty</a></li>
+        <li><a href="katastrofy.html">Katastrofy lotnicze</a></li>
+        <li><a href="lotniska.html">Największe lotniska</a></li>
+        <li><a href="linie.html">Linie lotnicze</a></li>
+    </ul>
+    <button id="closeMenu">Powrót</button>
+</div>
+    <nav>
+        <a href="../index.html">Portfolio</a>
+        <a href="firmy.html">Firmy samolotów</a>
+        <a href="typy.html"><u>Typy samolotów</u></a>
+        <a href="najpopularniejsze.html">Najpoplarniejsze samoloty</a>
+    </nav>
+<a href="samoloty.html" class="top-left-image-link">
+    <img src="imgs/samolot.jpg" alt="powrót" class="top-left-image" />
+</a>
+<section class="middle">
+    <h1>Typy samolotów</h1>
+    <p>Samoloty wyróżniają się na różne typy, wszystkie z innymi zadaniami</p>
+    <p>Samoloty używane są w wojsku, w transporcie ludzi i towarów lub nawet na zwalczanie pożarów.</p>
+</section>
+<section class="tekst">
+    <h1>Pasażerskie</h1>
+    <img src="imgs/pasazerski.jpg" alt="pasażerski" width="400px">
+    <p>Samoloty pasażerskie używane są do transportu ludzi przez długie dystanse dosyć szybko. Jest to najbezpieczniejsza forma transportu. Samoloty takie mają dużo miejsc, największy z nich mający aż do 550 miejsc.</p>
+    <p>Pierwszy lot pasażerski odbył się 1 stycznia 1914 roku i został zrealizowany przez amerykańską firmę St. Petersburg-Tampa Airboat Line.</p>
+</section>
+<section class="tekst">
+    <h1>Cargo</h1>
+    <img src="imgs/cargo.jpeg" alt="cargo" width="400px">
+    <p>Samoloty cargo to specjalistyczne samoloty używane do transportu ciężkich ładunków. Największy samolot cargo to był An-225 Mrija, który został zniszczony skutkiem wojny rosyjsko-ukraińskiej.</p>
+    <p>Takie samoloty transportują nawet części do innych samolotów.</p>
+</section>
+<section class="tekst">
+    <h1>Ultralekkie</h1>
+    <img src="imgs/lekkie.jpg" alt="ultralekkie" width="400px">
+    <p>Samoloty ultralekkie są używane do lotów amatorskich. Ważą mniej niż 450kg (jeżeli lądują na lądzie) lub mniej niż 495 (jeżeli lądują na wodzie). Te samoloty mają zazwyczaj 1-2 miejsc.</p>
+    <p>Rekordowy samolot Carbon Cub SS LSA wykonał lądowanie, w czasie którego zatrzymał się po przebyciu 21 m, a następnie wystartował wykorzystując jedynie 19,5 m pasa startowego.</p>
+    <h1>Wosjkowe</h1>
+    <p>Samoloty wojskowe dzielą się na różne typy:</p>
+    <h3>Bombowce</h2>
+    <img src="imgs/bombowiec.jpg" alt="bombowiec" width="300px">
+    <p>Cel tych samolotów to niszczenie obiektów naziemnych nieprzyjaciela za pomocą bomb.</p>
+    <p>Dzielą się na: lekkie, średnie i ciężkie.</p>
+    <h3>Myśliwskie</h2>
+    <img src="imgs/mysliwiec.jpg" alt="myśliwiec" width="300px">
+    <p>Samoloty bojowe przeznaczone przede wszystkim do zwalczania innych statków powietrznych i wywalczenia przewagi powietrznej, jak i obrony własnych samolotów o innym przeznaczeniu.</p>
+    <p>Pierwsze myśliwce zostały opracowane podczas I wojny światowej w odpowiedzi na pojawienie się sterowców i samolotów rozpoznawczych wroga, wypełniających misje rozpoznawcze i bombowe.</p>
+    <h3>Cargo Militarne</h2>
+    <img src="imgs/cargomilitary.png" alt="cargo militarny" width="300px">
+    <p> Wojskowe samoloty transportowe przeznaczone są do powietrznych przewozów wojsk i ładunków oraz wysadzania desantów powietrznych. W zależności od wagi przewożonych ładunków i zasięgu dzielą się na ciężkie, średnie i lekkie.</p>
+    <p>Są wyposażone w odpowiednio przystosowaną ładownię, osobową, osobowo- towarową lub towarową. Wymiary ładowni często dostosowuje się do określonego rodzaju sprzętu wojskowego.</p>
+    <h3>Tankowce powietrzne</h2>
+    <img src="imgs/tankowiec.jpg" alt="tankowiec" width="300px">
+    <p>Tankowce (także nazywane: samolot-zbiornikowiec, samolot-cysterna) są wyposażone w odpowiednio przystosowaną ładownię, osobową, osobowo-towarową lub towarową. Wymiary ładowni często dostosowuje się do określonego rodzaju sprzętu wojskowego</p>
+    <p>Samoloty-cysterny zwykle są wersjami pochodnymi dużych samolotów transportowych lub bombowców, wyposażonych w odpowiednio pojemne zbiorniki paliwa i instalację do uzupełniania paliwa w powietrzu.</p>
+</section>
+<section class="sources">
+    <h3>Źródła:</h3>
+    <ul>
+    
+    <li><a href="https://dlapilota.pl/wiadomosci/aopa/rekord-d%C5%82ugo%C5%9Bci-startu-i-l%C4%85dowania-carbon-cub-ss">https://dlapilota.pl/wiadomosci/aopa/rekord-d%C5%82ugo%C5%9Bci-startu-i-l%C4%85dowania-carbon-cub-ss</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Samolot_ultralekki">https://pl.wikipedia.org/wiki/Samolot_ultralekki</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Samolot_bombowy">https://pl.wikipedia.org/wiki/Samolot_bombowy</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Samolot_my%C5%9Bliwski">https://pl.wikipedia.org/wiki/Samolot_my%C5%9Bliwski</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Samolot_transportowy">https://pl.wikipedia.org/wiki/Samolot_transportowy</a></li>
+    <li><a href="https://pl.wikipedia.org/wiki/Tankowiec_powietrzny">https://pl.wikipedia.org/wiki/Tankowiec_powietrzny</a></li>
+
+    </ul>
+</section>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('overlay');
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    hamburger.addEventListener('click', () => {
+        overlay.classList.add('active');
+        menu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+</script>
+</body>

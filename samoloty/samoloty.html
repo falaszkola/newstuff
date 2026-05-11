@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <title>UX</title>
+    <style>
+        .middle {
+            position: fixed;
+            top: -10px;
+            left: -8px;
+            width: 100vw;
+            height: 70vh;      /* 70% wysokości okna */
+            overflow: hidden;
+            margin: 0;
+            background-color: rgb(0, 0, 0); /* opcjonalne */
+            z-index: 1;
+            position: relative;
+        }
+
+        .middle img {
+            top: -20px; /* przesunięcie lekko w górę, by usunąć biały pasek */
+            left: 0;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transform: translateY(-300px);
+        }
+.text-on-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    text-align: center;
+    z-index: 2;
+    width: 100%;  /* żeby tekst mógł się ładnie wyśrodkować */
+}
+
+.left {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+}
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    width: 100px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    display: none;
+}
+.opis {
+    text-align: center;
+    display: none;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}  
+nav {
+    display: none
+}
+   @media only screen and (min-width: 1200px) {
+        nav {
+            background-color: #c0392b;
+            height: 80px;
+            width: 900px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+            color: white;
+        }
+        nav::before {
+            content: "";
+            position: absolute;
+            top: 0;             /* przylega do góry paska */
+            left: -80px;        /* po lewej od paska */
+            width: 0;
+            height: 0;
+            /* trójkąt z kątem prostym w prawym górnym rogu */
+            border-top: 80px solid #c0392b;      /* górna ściana trójkąta */
+            border-left: 80px solid transparent; /* lewa ściana przezroczysta */
+            border-bottom: 0 solid transparent;
+            border-right: 0 solid transparent;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .middle {
+            position: fixed;
+            top: -10px;
+            left: -8px;
+            width: 100vw;
+            height: 70vh;      /* 70% wysokości okna */
+            overflow: hidden;
+            margin: 0;
+            background-color: red; /* opcjonalne */
+            z-index: 1;
+            position: relative;
+        }
+
+        .middle img {
+            position: absolute;
+            top: -20px; /* przesunięcie lekko w górę, by usunąć biały pasek */
+            left: 0;
+            width: 100vw;
+            height: auto;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transform: translateY(-300px);
+        }
+.text-on-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    text-align: center;
+    z-index: 2;
+    width: 100%;  /* żeby tekst mógł się ładnie wyśrodkować */
+}
+
+.left {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+}
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+.margin {
+    margin: 100px;
+    font-size: large;
+}
+.top-left-image {
+    position: fixed;
+    top: 20px;
+    left: 0px;
+    width: 150px; /* dopasuj rozmiar jeśli chcesz */
+    height: auto;
+    z-index: 1500; /* nad innymi elementami */
+    cursor: pointer;
+}
+.progress img {
+    width: 1500px;
+    display: block;
+    margin: 0 auto;
+    background-color: #c0392b;
+}
+.opis {
+    text-align: center;
+}
+/* Przycisk hamburgera */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    background-color: #c0392b;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Tło przyciemnione */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1900;
+}
+
+/* Panel menu */
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.548);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    font-size: 20px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #c0392b;
+}
+
+/* Przycisk powrotu */
+#closeMenu {
+    background: #ffffff00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeMenu:hover {
+    background: #a9312600;
+}
+
+/* Klasy aktywujące menu i tło */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+}
+ </style>
+</head>
+<body>
+    <!-- Przycisk hamburgera -->
+<div class="hamburger" id="hamburger">
+    &#9776; <!-- symbol hamburgera -->
+</div>
+
+<!-- Przyciemnione tło -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Menu boczne -->
+<div class="menu" id="menu">
+    <h2>Więcej podstron</h2>
+    <ul>
+        <li><a href="samoloty.html"><u>Strona główna</u></a></li>
+        <li><a href="firmy.html">Firmy samolotów</a></li>
+        <li><a href="typy.html">Typy samolotów</a></li>
+        <li><a href="najpopularniejsze.html">Najpopularniejsze samoloty</a></li>
+        <li><a href="katastrofy.html">Katastrofy lotnicze</a></li>
+        <li><a href="lotniska.html">Największe lotniska</a></li>
+        <li><a href="linie.html">Linie lotnicze</a></li>
+    </ul>
+    <button id="closeMenu">Powrót</button>
+</div>
+    <nav>
+        <a href="../newfolio.html">Portfolio</a>
+        <a href="firmy.html">Firmy samolotów</a>
+        <a href="typy.html">Typy samolotów</a>
+        <a href="najpopularniejsze.html"><u>Najpoplarniejsze samoloty</u></a>
+    </nav>
+<a href="samoloty.html" class="top-left-image-link">
+    <img src="imgs/samolot.jpg" alt="powrót" class="top-left-image" />
+</a>
+    <section class="middle">
+        <img src="imgs/cessna.jpg" alt="Cessna" />
+        <div class="text-on-image">
+            <h1>Samoloty są <br />super!</h1>
+        </div>
+    </section>
+
+    <section class="left">
+        <h1>To strona jest o samolotach.</h1>
+        <p>Na tej stronie znajdziesz różne informacje o samolotach, ich producentach i inne rzeczy.</p>
+        <p>Zobacz pasek u góry lub zjedź na dół.</p>
+    </section>
+    <section class="margin">
+    <h1>Witaj na stronie!</h1>
+        <p>Ta strona zawiera informacje o firmach, typach i użytkach samolotów.</p>
+        <p>Ale najpierw szybki wstęp, do czego są samoloty?</p>
+        <p>Te latające pojazdy używane są w transporcie ludzi, towaru i nawet w wojsku.</p>
+    <h1>Historia samolotów</h1>
+        <p>Samolot został stworzony przez braci Wright (Orville'a i Wilbura),</p>
+        <p>Który odbył swój pierwszy lot 17 grudnia 1903 roku w Kitty Hawk w Karolinie Północnej.</p>
+        <p>Ich maszyna, nazwana Wright Flyer, była pierwszym w pełni kontrolowanym samolotem napędzanym silnikiem spalinowym,</p>
+        <p>A lot trwał 12 sekund i pokonał dystans 37 metrów. </p>
+    </section>
+    <section class="progress">
+        <img src="imgs/planes.png" alt="progresja samolotów">
+    </section>
+    <section class="opis">
+        <h1>W obrazkach powyżej widzimy:</h1>
+        <p>(1) <b>Wright Flyer</b>'a - pierwszy samolot zbudowany</p>
+        <p>(2) <b>Nieuport 17</b> - samolot myśliwski z pierwszej wojny światowej produkowany przez Francję</p>
+        <p>(3) <b>F-16 Fighting Falcon</b> - myśliwiec czwartej generacji produkowany przez USA</p>
+    </section>
+    </section>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('overlay');
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    hamburger.addEventListener('click', () => {
+        overlay.classList.add('active');
+        menu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        menu.classList.remove('active');
+    });
+</script>
+
+</body>
+</html>

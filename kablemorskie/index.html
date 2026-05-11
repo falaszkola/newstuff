@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submarine Cable Map</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<div id="legend">
+  <h3>Legenda</h3>
+  <p><span class="line red"></span> Bardzo wysoka przepustowość</p>
+  <p><span class="line blue"></span> Standardowe kable</p>
+  <p><span class="line green"></span> Nowe instalacje</p>
+</div>
+
+<div id="info"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="data/cities.js"></script>
+<script src="data/cables.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
