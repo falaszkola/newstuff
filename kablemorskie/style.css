@@ -3,39 +3,117 @@ body {
   font-family: Arial;
 }
 
-#map {
-  height: 100vh;
-  width: 100%;
+.container {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
 }
 
-#legend {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: white;
+.box {
+  width: auto;
+  height: auto;
+  padding: 50px;
+}
+
+.box p {
+  border: 3px dotted black;
+  border-radius: 5px;
   padding: 10px;
-  border-radius: 8px;
-  z-index: 999;
+  font-size: large;
+  line-height: 60px;
+}
+.topbg {
+  background-color: cornflowerblue;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.line {
-  display: inline-block;
-  width: 20px;
-  height: 3px;
-  margin-right: 6px;
-}
-
-.red { background: red; }
-.blue { background: blue; }
-.green { background: green; }
-
-#info {
+.topbg::before {
+  content: "";
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: white;
-  padding: 15px;
-  width: 250px;
-  border-radius: 8px;
-  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80%; 
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 1;
+}
+
+.topbg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.topbg h1 {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 5vw;
+  padding-bottom: 130px;
+  z-index: 2;
+}
+
+.spacer {
+  width: 100%;
+  height: 150px;
+}
+
+.tinyspacer {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(139, 139, 139);
+}
+
+.side img {
+  height: 200px;
+}
+
+.right {
+  float: right;
+  transform: rotate(180deg);
+}
+
+.bgthing {
+   width: 100%;
+  height: 250px; 
+  background-color: rgba(127, 182, 255, 0.5);
+  -webkit-text-stroke: 2px black;
+  color:white;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center; 
+  align-items: center;  
+}
+
+.tekst {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgba(106, 220, 248, 0.185);
+}
+
+.tekst h1 {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.527);
+  font-size: xx-large;
+}
+
+.build {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
 }

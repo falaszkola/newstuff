@@ -2,34 +2,76 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Submarine Cable Map</title>
+  <title>Podwodne światłowody</title>
+  <link rel="stylesheet" href="style.css"/>
 
-  <link rel="stylesheet" href="style.css" />
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
 </head>
-
 <body>
-
-<div id="map"></div>
-
-<div id="legend">
-  <h3>Legenda</h3>
-  <p><span class="line red"></span> Bardzo wysoka przepustowość</p>
-  <p><span class="line blue"></span> Standardowe kable</p>
-  <p><span class="line green"></span> Nowe instalacje</p>
+<div class="topbg">
+  <img src="kmimg/cablebg.jpg">
+  <h1>Kładzenie światłowodów pod wodą - jak?</h1>
 </div>
 
-<div id="info"></div>
+<div class="side">
+  <img src="kmimg/sidecable.png">
+  <img src="kmimg/sidecable.png" class="right">
+</div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<div class="bgthing">
+  <h1>Co to są kable morskie?</h1>
+</div>
 
-<script src="data/cities.js"></script>
-<script src="data/cables.js"></script>
-<script src="app.js"></script>
+<div class="tekst">
+  <h1>  Kable morskie to podwodne światłowody, które przenoszą<br> ~99% całego ruchu internetowego między kontynentami.<br><br>
+        Są one bardzo ważne ponieważ dzięki nim, internet działa globalnie i szybko,<br> polega na nich także gospodarka świata np. banki.<br><br>
+        Dlatego firmy takie jak Google lub Meta inwestują w budowlę swoich kabli.
+  </h1>
+</div>
+
+<div class="tinyspacer">
+</div>
+
+<div class="side">
+  <img src="kmimg/sidecable.png">
+  <img src="kmimg/sidecable.png" class="right">
+</div>
+
+<div class="bgthing">
+  <h1>Jak światłowód jest wykładany?</h1>
+</div>
+
+<div class="tekst">
+  <h1>  Najpierw bada się dno oceanu; unika się wulkanów, głębokich rowów,<br>miejsc z silnymi prądami czy intensywnym ruchem statków.<br><br>
+        Statek płynie powoli i opuszcza kabel na dno oceanu.<br>Na dużych głębokościach kabel po prostu leży na dnie.<br><br>
+        Blisko lądu kabel jest bardziej narażony na uszkodzenia (kotwice, sieci rybackie), <br>więc specjalny podwodny pług zakopuje go pod piaskiem lub mułem.<br><br> <!-- patapim --> 
+        Co kilkadziesiąt–kilkaset kilometrów montuje się repeatery/wzmacniacze, <br>które wzmacniają sygnał świetlny.
+  </h1>
+</div>
+
+<div class="tinyspacer">
+</div>
+
+<div class="spacer">
+</div>
+
+<div class="build">
+  <h1>Budowa światłowodu morskiego</h1>
+</div>
+
+<div class="container">
+  <div class="box"><img src="kmimg/submarine-cable-structure.png"></div>
+  <div class="box"><p>
+<b>Optical Fibers → </b>Włókna światłowodowe<br>
+<b>Silicon Gel → </b>Żel silikonowy<br>
+<b>Ultra-High Strength Steel Wires → </b>Stalowe przewody o bardzo wysokiej wytrzymałości<br>
+<b>Buffering Material (Plastic/Steel) → </b>Materiał buforujący (plastik/stal)<br>
+<b>Copper Sheath → </b>Powłoka miedziana<br>
+<b>Polyethylene Insulator → </b>Izolacja polietylenowa<br>
+<b>Nylon Yarn Bedding → </b>Warstwa nylonowa (wypełnienie/ochrona)<br>
+<b>Galvanized Armor Wires → </b>Ocynkowane druty pancerne<br>
+<b>Tar-Soaked Nylon Yarn → </b>Nylon nasączony smołą</p>
+</div>
+</div>
 
 </body>
 </html>
